@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function(){
     getBreeds()
 })
 
+
+
 function getBreeds(){
     fetch(breedUrl)
     .then(r=>r.json())
@@ -15,17 +17,38 @@ function getBreeds(){
 
 function dogList(data){
     //console.log(Object.keys(data.message))
-    Object.keys(data.message).forEach(d => {
+    const listOfDogs = Object.keys(data.message)
+    listOfDogs.forEach(d => {
 
         const listDog = document.getElementById("dog-breeds")
         const newList = document.createElement("li")
         newList.className = 'dogLi'
         newList.innerText = d
         listDog.appendChild(newList)
-
         newList.addEventListener('click', (e) => {
             console.log(e)
             newList.style.color = "red";
+        })
+        document.querySelector("select").addEventListener("change", () => 
+        {
+            const dogs = document.getElementById("dog-breeds")
+            dogs.removeChild(dogs.childNodes[0])
+            if(document.querySelector("select").value === "a")
+            {
+
+                // for (breed of listOfDogs){
+                //     if()
+                // }
+            }else if(document.querySelector("select").value === "b")
+            {
+                
+            }else if(document.querySelector("select").value === "c")
+            {
+                
+            }else if(document.querySelector("select").value === "d")
+            {
+                
+            }
         })
     })
 }
